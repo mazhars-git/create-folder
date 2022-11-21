@@ -7,7 +7,10 @@ const NewFolder = (props) => {
         console.log('Clicked : Delete')
     }
     const handleCreate = () =>{
-        console.log('Clicked : Create')
+        document.getElementById("inputForm").style.display = 'block';
+    }
+    const handleCancel = () => {
+        document.getElementById("inputForm").style.display = 'none';
     }
 
     return (
@@ -22,12 +25,16 @@ const NewFolder = (props) => {
             </ul>
         </div>
 
+        {/* <Popup trigger={<button> Trigger</button>} position="right center">
+            <div>Popup content here !!</div>
+        </Popup> */}
+
         <div>
-            <form>
+            <form id='inputForm' style={{display: 'none'}}>
                 <label for="name">Create Folder <br/></label>
                 <input type="text" name='name' id='name' placeholder='Folder Name'/> <br />
 
-                <button type="button">Cancel</button> 
+                <button onClick={handleCancel} type="button">Cancel</button> 
                 <button type="submit">Create</button>
                 
             </form>
